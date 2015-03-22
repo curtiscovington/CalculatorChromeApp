@@ -1,0 +1,76 @@
+<html><head>
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/core-input/core-input.html">
+<link rel="import" href="../bower_components/paper-input/paper-input-decorator.html">
+<link rel="import" href="my-calculator-button/my-calculator-button.html">
+
+</head><body>
+
+<polymer-element name="my-calculator">
+  <template>
+    <style>
+      :host { display: block; overflow: hidden; }
+
+      paper-input {
+        width: 100%;
+        text-align: right;
+      }
+
+      table {
+        width: 100%;
+        height: 100%;
+      }
+
+      tr {
+        height: 100px;
+
+      }
+      paper-button {
+        width: 100%;
+        height: 100%;
+      }
+       my-calculator-button {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+    <paper-input-decorator>
+      <input is="core-input" id="input" type="number" value="{{result}}" commitedValue={{lastResult}}></paper-input>
+    </paper-input-decorator>
+
+    <table id="button_container">
+      <tr>
+        <td><my-calculator-button value="C" on-click="{{clickClearAll}}"></my-calculator-button></td>
+        <td><my-calculator-button value="±" on-click="{{clickPlusMinus}}"></my-calculator-button></td>
+        <td><my-calculator-button value="%" on-click=""></my-calculator-button></td>
+        <td><my-calculator-button value="÷" on-click="{{clickDivide}}"></my-calculator-button></td>
+      </tr>
+      <tr>
+        <td><my-calculator-button value="7" on-click="{{clickNumber}}"></my-calculator-button></td>
+        <td><my-calculator-button value="8" on-click="{{clickNumber}}"></my-calculator-button></td>
+        <td><my-calculator-button value="9" on-click="{{clickNumber}}"></my-calculator-button></td>
+        <td><my-calculator-button value="✕" on-click="{{clickMultiply}}"></my-calculator-button></td>
+      </tr>
+      <tr>
+        <td><my-calculator-button value="4" on-click="{{clickNumber}}"></my-calculator-button></td>
+        <td><my-calculator-button value="5" on-click="{{clickNumber}}"></my-calculator-button></td>
+        <td><my-calculator-button value="6" on-click="{{clickNumber}}"></my-calculator-button></td>
+        <td><my-calculator-button value="-" on-click="{{clickSubtract}}"></my-calculator-button></td>
+      </tr>
+      <tr>
+        <td><my-calculator-button value="1" on-click="{{clickNumber}}"></my-calculator-button></td>
+        <td><my-calculator-button value="2" on-click="{{clickNumber}}"></my-calculator-button></td>
+        <td><my-calculator-button value="3" on-click="{{clickNumber}}"></my-calculator-button></td>
+        <td><my-calculator-button value="+" on-click="{{clickAdd}}"></my-calculator-button></td>
+      </tr>
+      <tr>
+        <td colspan="2"><my-calculator-button value="0" on-click="{{clickNumber}}"></my-calculator-button></td>
+        <td><my-calculator-button value="." on-click="{{clickDecimal}}"></td>
+        <td><my-calculator-button value="=" on-click="{{clickCalculate}}"></my-calculator-button></td>
+      </tr>
+    </table>
+  </template>
+  <script src="my-calculator.js"></script>
+</polymer-element>
+
+</body></html>
